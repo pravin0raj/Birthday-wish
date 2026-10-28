@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+const EMAILJS_SERVICE_ID = 'service_xpa5b8h';
+const EMAILJS_TEMPLATE_ID = 'template_y5qb8p8';
+const EMAILJS_PUBLIC_KEY = 'WFnpVxDDwca-U-6hn';
+window.addEventListener('load', function () {
+  if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0819">
+<title>A Little Universe for You ✨</title>
+<style>
+:root{--night:#090817;--lav:#c8a7ff;--pink:#ffb9df;--cream:#fff0d5;--white:#fbf7ff;--muted:#c9bfdc}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;color:var(--white);background:var(--night)}
+body{min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 0%,#30224c 0%,#17132d 40%,#080713 82%)}
+button,textarea{font:inherit}
+#sky,#fx{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#sky{z-index:0}#fx{z-index:8}
+.star{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 9px 2px #c9a6ff;animation:twinkle var(--duration,3s) ease-in-out infinite alternate,starDrift 12s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.18}to{opacity:1}}
+@keyframes starDrift{from{translate:0 0;scale:.75}to{translate:5px -8px;scale:1.15}}
+.moon{position:absolute;right:10%;top:7%;width:68px;height:68px;border-radius:50%;background:#fff0d5;box-shadow:0 0 25px #f7d6ff,0 0 80px #a27bff55;animation:moonFloat 6s ease-in-out infinite,moonGlow 4s ease-in-out infinite alternate}
+.moon:after{content:"";position:absolute;width:63px;height:63px;left:22px;top:-7px;border-radius:50%;background:#21183b}
+@keyframes moonFloat{50%{transform:translateY(-9px)}}
+@keyframes moonGlow{from{filter:brightness(.96);box-shadow:0 0 25px #f7d6ff,0 0 65px #a27bff44}to{filter:brightness(1.08);box-shadow:0 0 34px #fff0d5,0 0 95px #a27bff77}}
+.shooting-star{position:fixed;z-index:2;pointer-events:none;top:12%;left:110%;width:120px;height:2px;background:linear-gradient(90deg,#fff,transparent);transform:rotate(-28deg);filter:drop-shadow(0 0 5px #d9baff);animation:shootAcross 1.5s ease-out forwards}
+@keyframes shootAcross{to{left:-35%;top:55%;opacity:0}}
+main{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:22px 14px}
+.shell{width:min(100%,700px);position:relative}
+.topline{display:flex;align-items:center;justify-content:space-between;margin:0 5px 12px;font:10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cbb9e9}
+.sound{pointer-events:auto;border:1px solid #e1caff35;background:#ffffff08;color:#eadcff;border-radius:999px;padding:8px 11px;font:11px Arial,sans-serif;cursor:pointer}
+.card{position:relative;min-height:610px;padding:clamp(25px,6vw,52px);border:1px solid #ffffff28;border-radius:30px;background:linear-gradient(145deg,#1b1635ed,#0e0c20ed);box-shadow:0 22px 90px #0008,inset 0 0 60px #c8a7ff0b;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;backdrop-filter:blur(12px)}
+.card:before{content:"";position:absolute;inset:-80%;pointer-events:none;background:conic-gradient(from 0deg,transparent 0 74%,#c9a6ff0d 82%,transparent 90%);animation:orbit 32s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+#content{position:relative;z-index:1;width:100%}
+.scene{animation:arrive .72s cubic-bezier(.2,.8,.2,1) both}
+@keyframes arrive{from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(4px)}to{opacity:1;transform:none;filter:blur(0)}}
+.leaving{animation:leave .2s ease-in forwards}
+@keyframes leave{to{opacity:0;transform:translateY(-8px);filter:blur(2px)}}
+.eyebrow{font:10px/1.6 Arial,sans-serif;letter-spacing:.27em;text-transform:uppercase;color:#d8c1ff;margin-bottom:17px}
+h1{font-weight:normal;font-size:clamp(39px,8vw,67px);line-height:1.02;margin:0 0 20px;text-shadow:0 0 32px #c6a2ff55}
+h2{font-weight:normal;font-size:clamp(28px,6vw,42px);line-height:1.15;margin:0 0 18px}
+p{font-size:17px;line-height:1.8;color:#e7e0f1;max-width:510px;margin:0 auto 20px}
+.symbol{font-size:48px;margin:0 auto 20px;filter:drop-shadow(0 0 17px #c4a3ff);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px) rotate(3deg)}}
+.btn{position:relative;overflow:hidden;pointer-events:auto;border:1px solid #f1d8ff8c;border-radius:999px;background:linear-gradient(110deg,#8e6aca,#c16eac);color:#fff;padding:14px 24px;font:600 13px Arial,sans-serif;letter-spacing:.035em;cursor:pointer;box-shadow:0 0 24px #9b72d544;transition:transform .2s,box-shadow .2s}
+.btn:after{content:"";position:absolute;top:-50%;left:-80%;width:40%;height:200%;transform:rotate(20deg);background:linear-gradient(90deg,transparent,#ffffff55,transparent);transition:left .6s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 32px #c49cff99}.btn:hover:after{left:140%}.btn:active{transform:scale(.97)}
+.progress{display:flex;justify-content:center;gap:7px;margin-top:27px}.dot{height:6px;width:6px;border-radius:99px;background:#655977;transition:all .3s}.dot.active{width:22px;background:#efd8ff;box-shadow:0 0 12px #d6aaff}
+.rule{height:1px;width:90px;margin:23px auto;background:linear-gradient(90deg,transparent,#d8b9ff,transparent)}
+
+.chapter-highlight{display:block;max-width:520px;margin:20px auto 22px;padding:8px 12px;border-left:2px solid #d8b9ff99;background:#c8a7ff08;color:#f3e8ff;font-size:17px;line-height:1.8;text-shadow:0 0 5px #c8a7ff22}
+@keyframes highlightGlow{from{box-shadow:0 0 15px #c8a7ff20,inset 0 0 12px #ffb9df08}to{box-shadow:0 0 30px #dba7ff55,inset 0 0 20px #ffb9df18}}
+.wishgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:490px;margin:23px auto}
+.wish{min-height:120px;padding:15px 10px;border:1px solid #d8baff35;border-radius:18px;background:linear-gradient(145deg,#ffffff0c,#b58aff08);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;animation:cardFloat 4.7s ease-in-out infinite;transition:transform .25s,border-color .25s}
+.wish:nth-child(2){animation-delay:.5s}.wish:nth-child(3){animation-delay:1s}.wish:nth-child(4){animation-delay:1.5s}
+.wish:hover{transform:translateY(-4px);border-color:#d8baff80}
+@keyframes cardFloat{50%{translate:0 -4px}}
+.wish span{font-size:27px}.wish b{font-size:15px;font-weight:normal;color:#f0dcff}.wish small{font:12px/1.5 Arial,sans-serif;color:#c9bddb}
+.constellation{max-width:430px;height:160px;margin:0 auto 10px}
+.constellation svg{width:100%;height:100%;overflow:visible}
+.constellation line{stroke:#c5a2ff;stroke-width:1.5;opacity:.35;stroke-dasharray:5 5;transition:opacity .4s,stroke-dasharray .4s}
+.constellation line.lit{opacity:.95;stroke-dasharray:none}
+.constellation .node{cursor:pointer;pointer-events:auto;fill:#fff0cf;filter:drop-shadow(0 0 7px #e6c7ff);transition:r .2s,fill .2s}
+.constellation .node.done{fill:#ffcae7}
+.starhint{font:12px Arial,sans-serif;color:#bdb0d1;margin:0 auto 16px}
+form{width:100%;max-width:490px;margin:0 auto;text-align:left}
+label{display:block;color:#e5d5ff;font-size:15px;margin:0 0 10px}
+textarea{display:block;width:100%;min-height:116px;resize:vertical;border:1px solid #d4b5ff45;border-radius:16px;background:#090817c9;color:white;padding:15px;font:16px/1.6 Arial,sans-serif;outline:none}
+textarea:focus{border-color:#c8a7ff;box-shadow:0 0 0 3px #b88bff20}textarea::placeholder{color:#8e829f}
+.actions{display:flex;justify-content:center;gap:10px;margin-top:17px;flex-wrap:wrap}
+.note{font:11px/1.7 Arial,sans-serif;color:#a99bbc;margin-top:15px}
+.envelope-wrap{height:155px;width:205px;position:relative;margin:8px auto 24px;filter:drop-shadow(0 0 22px #b68cff55)}
+.envelope{position:absolute;bottom:0;width:205px;height:122px;border-radius:8px;background:linear-gradient(140deg,#d3b1ef,#8a68b9);overflow:hidden;transition:opacity .65s,transform .65s}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(140deg,#e6cfff,#9872c8);clip-path:polygon(0 0,50% 60%,100% 0);z-index:3;transform-origin:top;transition:transform .7s}
+.envelope:after{content:"";position:absolute;inset:0;background:linear-gradient(35deg,#805aa9,#c79bde);clip-path:polygon(0 100%,50% 47%,100% 100%);z-index:4}
+.letter{position:absolute;left:13px;right:13px;bottom:8px;height:104px;border-radius:5px;background:#fff5ed;color:#815b96;padding:12px 8px;font-size:27px;transition:transform 1s cubic-bezier(.2,.8,.2,1);z-index:2}
+.envelope.open:before{transform:rotateX(180deg);z-index:1}.envelope.open .letter{transform:translateY(-104px)}.envelope.fade{opacity:0;transform:translateY(20px) scale(.75)}
+.signature{font-size:23px;color:#f0cfff;margin-top:20px}
+.burst{position:fixed;z-index:9;pointer-events:none;font-size:18px;animation:burst 1.2s ease-out forwards}
+@keyframes burst{0%{opacity:0;transform:translate(0,0) scale(.3)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(150deg) scale(1.5)}}
+.hidden{display:none!important}
+@media(max-width:480px){.card{min-height:620px;padding:27px 19px;border-radius:24px}.moon{width:50px;height:50px;right:7%;top:4%}.moon:after{width:48px;height:48px;left:17px;top:-6px}.wishgrid{gap:8px}.wish{min-height:112px;padding:13px 7px}p{font-size:16px}.topline{font-size:9px}}
+
+.end-signature-screen{min-height:430px;display:grid;place-items:center;text-align:center;background:transparent}
+.end-signature-only{position:relative;display:block;width:100%;box-sizing:border-box;padding:22px 12px;font-family:Arial,Helvetica,sans-serif;font-size:clamp(30px,7.2vw,64px);font-style:normal;font-weight:700;letter-spacing:0;line-height:1.25;color:#f5a6d0;text-align:center;text-shadow:none;opacity:0;animation:signatureFade 3s ease forwards}.end-signature-only .ending-heart{display:block;margin-top:34px;font-family:Arial,Helvetica,sans-serif;font-size:clamp(48px,7vw,76px);font-weight:400;line-height:1;color:#f5a6d0;text-shadow:none}.end-signature-only:before{content:"";display:none}.end-signature-only:after{content:"";display:none}
+.end-final-message{font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,5vw,34px);font-style:italic;line-height:1.5;color:#f7d8ee;text-shadow:0 0 14px #ffb9df33;opacity:0;animation:finalMessageFade 2.2s ease forwards}
+@keyframes finalMessageFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes signatureFade{0%{opacity:0;transform:translateY(8px)}20%{opacity:1;transform:translateY(0)}65%{opacity:1}100%{opacity:0;transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+.birthday-popup-backdrop{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:#05040dcc;backdrop-filter:blur(7px);animation:popupFade .25s ease both}
+.birthday-popup{width:min(100%,390px);padding:30px 22px 24px;text-align:center;border:1px solid #d8b9ff66;border-radius:22px;background:linear-gradient(145deg,#251a40,#100d22);box-shadow:0 18px 70px #0009,0 0 28px #c8a7ff22;animation:popupRise .35s cubic-bezier(.2,.8,.2,1) both}
+.birthday-popup h2{margin:0 0 22px;color:#ffb9df;font-size:clamp(27px,7vw,35px);line-height:1.25;text-shadow:0 0 18px #ffb9df44}
+@keyframes popupFade{from{opacity:0}to{opacity:1}}@keyframes popupRise{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+
+
+/* Gentle floating hearts for the first and only birthday letter */
+.letter-hearts{position:relative;height:42px;max-width:320px;margin:0 auto 10px;pointer-events:none;overflow:visible}
+.letter-heart{position:absolute;bottom:0;left:var(--left);font-size:var(--size);color:#ffb9df;opacity:0;filter:drop-shadow(0 0 6px #ffb9df55);animation:letterHeartFloat var(--duration) ease-in infinite;animation-delay:var(--delay)}
+@keyframes letterHeartFloat{0%{transform:translateY(10px) scale(.7) rotate(-8deg);opacity:0}15%{opacity:.8}80%{opacity:.55}100%{transform:translateY(-48px) scale(1.08) rotate(12deg);opacity:0}}
+
+
+/* Birthday screen typography + soft flowing hearts */
+.birthday-screen{position:relative;isolation:isolate;min-height:410px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 8px 18px;overflow:hidden}
+.birthday-screen:before{content:"";position:absolute;inset:8px 0 58px;z-index:-1;border:1px solid #cdb4ff66;border-radius:28px;background:linear-gradient(145deg,rgba(15,8,30,.48),rgba(10,7,22,.62)),url("reference 1.jpg") center center / cover no-repeat;box-shadow:0 0 28px #b995ff25,inset 0 0 34px #d9b8ff12}
+.birthday-kicker{font:600 10px Arial,sans-serif;letter-spacing:.28em;color:#d9c8f6;text-transform:uppercase;margin-bottom:24px;animation:kickerGlow 3.5s ease-in-out infinite alternate}
+.birthday-heart{font-size:48px;line-height:1;color:#fff0fb;text-shadow:0 0 12px #ffb9df,0 0 28px #c7a1ff;animation:heartBeat 2.2s ease-in-out infinite;margin-bottom:20px}
+.birthday-title{font-family:'Palatino Linotype',Palatino,Georgia,serif!important;font-weight:normal!important;font-size:clamp(30px,7vw,44px)!important;letter-spacing:.035em;line-height:1.28!important;color:#ffc4e4!important;text-shadow:0 0 18px #ffb9df55;animation:titleFloat 4s ease-in-out infinite alternate;margin:0 0 30px!important}
+.birthday-next-wrap{margin-top:auto;padding:12px 0 0;animation:nextAppear .9s .35s both}
+.bg-hearts{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.bg-heart{position:absolute;bottom:-40px;left:var(--x);font-size:var(--s);color:var(--c);opacity:0;text-shadow:0 0 12px currentColor;animation:heartRise var(--t) linear var(--delay) infinite}
+@keyframes heartRise{0%{transform:translate3d(0,0,0) rotate(-10deg) scale(.7);opacity:0}12%{opacity:.62}75%{opacity:.42}100%{transform:translate3d(var(--drift),-480px,0) rotate(18deg) scale(1.15);opacity:0}}
+@keyframes heartBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes titleFloat{from{transform:translateY(2px);letter-spacing:.025em}to{transform:translateY(-4px);letter-spacing:.055em}}
+@keyframes kickerGlow{from{opacity:.7;text-shadow:0 0 0 #d9c8f6}to{opacity:1;text-shadow:0 0 12px #cdb4ff88}}
+@keyframes nextAppear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bg-heart,.birthday-heart,.birthday-title,.birthday-kicker{animation:none!important}}
+
+
+/* Romantic love-letter intro overlay */
+.love-intro{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,rgba(255,231,239,.97),rgba(250,218,232,.96) 42%,rgba(230,218,250,.97));color:#713c60;overflow:hidden;opacity:1;visibility:visible;transition:opacity .9s ease,visibility .9s ease}
+.love-intro:before,.love-intro:after{content:"♡";position:absolute;color:#e99abc66;font-size:clamp(80px,18vw,180px);animation:loveDrift 8s ease-in-out infinite;pointer-events:none}
+.love-intro:before{left:7%;top:8%;transform:rotate(-18deg)}.love-intro:after{right:7%;bottom:5%;animation-delay:-4s}
+@keyframes loveDrift{50%{translate:0 -18px;rotate:8deg;opacity:.55}}
+.love-card{position:relative;z-index:1;width:min(100%,520px);padding:clamp(24px,6vw,42px) 22px 30px;text-align:center;border:1px solid #fff9;border-radius:28px;background:linear-gradient(145deg,#fffaf8ef,#fff0f6ef);box-shadow:0 22px 70px #b66c9650,inset 0 0 0 1px #f7d5e6;backdrop-filter:blur(8px)}
+.love-kicker{font:600 10px Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#b76a91;margin-bottom:16px}
+.love-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(27px,6.5vw,40px);line-height:1.25;color:#a44e7d;margin:0 0 10px;text-shadow:0 2px 16px #f1a9cc55}
+.love-subtitle{font-size:15px;line-height:1.7;color:#875c77;margin:0 auto 20px;max-width:360px}
+.love-scene{position:relative;height:230px;max-width:340px;margin:0 auto 12px;display:grid;place-items:center;perspective:900px}
+.love-glow{position:absolute;width:190px;height:190px;border-radius:50%;background:#f7bfdc66;filter:blur(25px);animation:loveGlow 3s ease-in-out infinite alternate}
+@keyframes loveGlow{to{transform:scale(1.15);opacity:.7}}
+.love-rose{position:absolute;font-size:28px;filter:drop-shadow(0 3px 8px #c45b8850);animation:roseFloat 4s ease-in-out infinite}
+.love-rose.r1{left:9%;top:26%;rotate:-15deg}.love-rose.r2{right:9%;top:23%;animation-delay:-1s}.love-rose.r3{left:18%;bottom:9%;font-size:22px;animation-delay:-2s}.love-rose.r4{right:18%;bottom:8%;font-size:22px;animation-delay:-.5s}
+@keyframes roseFloat{50%{transform:translateY(-8px) rotate(5deg)}}
+.love-envelope{position:relative;width:220px;height:145px;border-radius:8px;filter:drop-shadow(0 12px 15px #a85c8655);transform:translateY(3px)}
+.love-paper{position:absolute;left:12px;right:12px;bottom:10px;height:112px;border-radius:5px;background:linear-gradient(135deg,#fffdf8,#ffeaf3);color:#a34c79;display:flex;align-items:center;justify-content:center;font-size:29px;box-shadow:0 1px 7px #b36b8b22;z-index:1;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.love-back{position:absolute;inset:0;border-radius:8px;background:linear-gradient(145deg,#f8b7d0,#df83ad);z-index:2}
+.love-front{position:absolute;inset:0;background:linear-gradient(145deg,#f9c5d9,#e98eb5);clip-path:polygon(0 0,50% 59%,100% 0,100% 100%,0 100%);z-index:4;border-radius:8px}
+.love-flap{position:absolute;inset:0;background:linear-gradient(145deg,#ffe0ea,#f5b4ce);clip-path:polygon(0 0,100% 0,50% 65%);transform-origin:top;transition:transform .85s ease;z-index:5}
+.love-seal{position:absolute;z-index:6;left:50%;top:48%;transform:translate(-50%,-50%);width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#d98aa9,#a83e70);color:#fff0f6;font-size:21px;box-shadow:0 3px 10px #9d426d55;transition:opacity .3s,transform .5s}
+.love-intro.opening .love-flap{transform:rotateX(180deg);z-index:0}.love-intro.opening .love-seal{opacity:0;transform:translate(-50%,-50%) scale(.5)}.love-intro.opening .love-paper{transform:translateY(-72px);z-index:3}
+.love-intro.revealed .love-title{animation:revealTitle .8s ease both}.love-intro.revealed .love-subtitle{animation:revealTitle .9s .15s ease both}
+@keyframes revealTitle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.love-intro.dismiss{opacity:0;visibility:hidden;pointer-events:none}
+.love-start{border:1px solid #d98ab3;border-radius:999px;background:linear-gradient(110deg,#c45d91,#e99abd);color:white;padding:13px 22px;font:600 13px Arial,sans-serif;letter-spacing:.03em;cursor:pointer;box-shadow:0 8px 22px #c45d913d;transition:transform .2s,box-shadow .2s}.love-start:hover{transform:translateY(-2px);box-shadow:0 12px 28px #c45d9155}.love-start:disabled{opacity:.7;cursor:default}
+@media(max-width:420px){.love-scene{height:205px}.love-envelope{transform:scale(.88)}.love-card{padding:25px 16px}.love-subtitle{font-size:14px}}
+
+</style>
+</head>
+<body>
+<audio id="bgMusic" src="background-song.mp3" loop autoplay preload="auto"></audio>
+
+<div class="love-intro" id="loveIntro">
+  <section class="love-card" aria-label="A romantic birthday surprise">
+    <div class="love-kicker">A little something from the heart</div>
+    <h1 class="love-title">A Little Surprise Awaits… ♡</h1>
+    <p class="love-subtitle">A tiny letter, a little magic, and something made just for you. 💌</p>
+    <div class="love-scene" aria-hidden="true">
+      <div class="love-glow"></div><span class="love-rose r1">🌹</span><span class="love-rose r2">🌷</span><span class="love-rose r3">✦</span><span class="love-rose r4">♡</span>
+      <div class="love-envelope"><div class="love-back"></div><div class="love-paper">♡</div><div class="love-front"></div><div class="love-flap"></div><div class="love-seal">♥</div></div>
+    </div>
+    <button class="love-start" id="openLoveLetter" type="button">Open your letter 💌</button>
+  </section>
+</div>
+
+<div id="sky" aria-hidden="true"><div class="moon"></div></div><div id="fx" aria-hidden="true"></div>
+<main><div class="shell">
+<div class="topline"><span>✦ A birthday journey ✦</span><button class="sound" id="soundBtn" type="button">♫ Sound: Off</button></div>
+<section class="card"><div id="content" class="scene">
+<div class="eyebrow">A tiny universe, made for you</div><div class="symbol">☾ ✦</div>
+<h1>A Little Universe<br>for You</h1>
+<p>Among billions of stars, my heart found its universe in you. ✨</p>
+<p>You make my ordinary world feel magical, and your smile is my favorite kind of happiness. 💗</p>
+<p>Today, I created a little universe just for you, filled with love straight from my heart. 💌</p>
+<p>No matter how far life takes us, you’ll always be a beautiful part of my universe. ♾️❤️</p>
+<button class="btn" id="start">Enter Your Universe ✨</button><div class="progress"><i class="dot active"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+</div></section></div></main>
+<script>
+(function(){
+
+  // Love-letter intro: open the envelope, then reveal the existing birthday site.
+  const loveIntro = document.getElementById('loveIntro');
+  const loveOpenButton = document.getElementById('openLoveLetter');
+  const musicOnLoad = document.getElementById('bgMusic');
+  // Request music as soon as the website opens. Browsers may block audible autoplay.
+  if (musicOnLoad) {
+    musicOnLoad.volume = 0.35;
+    musicOnLoad.play().then(() => {
+      const musicLabel = document.getElementById('soundBtn');
+      if (musicLabel) musicLabel.textContent = '♫ Music: On';
+    }).catch(() => {
+      // The Open your letter button retries playback after a user gesture.
+    });
+  }
+  if (loveIntro && loveOpenButton) {
+    loveOpenButton.addEventListener('click', () => {
+      if (loveOpenButton.disabled) return;
+      loveOpenButton.disabled = true;
+      loveOpenButton.textContent = 'Opening with love… ♡';
+      // Try to start the background song after the visitor's click.
+      const bgMusic = document.getElementById('bgMusic');
+      if (bgMusic) bgMusic.play().then(() => {
+        document.getElementById('soundBtn').textContent = '♫ Music: On';
+      }).catch(() => {
+        // If playback is blocked or the MP3 is not uploaded, the music button can be used later.
+      });
+      loveIntro.classList.add('opening');
+      setTimeout(() => {
+        loveIntro.classList.add('revealed');
+        loveOpenButton.textContent = 'Enter your little universe ✨';
+      }, 850);
+      setTimeout(() => loveIntro.classList.add('dismiss'), 2800);
+    });
+  }
+
+const sky=document.getElementById('sky'),fx=document.getElementById('fx'),content=document.getElementById('content');
+for(let i=0;i<120;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';const z=Math.random()*2.4+.6;s.style.width=z+'px';s.style.height=z+'px';s.style.setProperty('--duration',(2+Math.random()*4)+'s');s.style.animationDelay=(-Math.random()*4)+'s';sky.appendChild(s)}
+let answers={q1:'',q2:''};
+const bgMusic=document.getElementById('bgMusic');
+const soundBtn=document.getElementById('soundBtn');
+if (bgMusic) bgMusic.volume=0.35;
+function sparkle(n=22){for(let i=0;i<n;i++){const e=document.createElement('span');e.className='burst';e.textContent=['✦','✧','♡','✴'][Math.floor(Math.random()*4)];e.style.left=(15+Math.random()*70)+'vw';e.style.top=(30+Math.random()*45)+'vh';e.style.setProperty('--x',(Math.random()*280-140)+'px');e.style.setProperty('--y',(Math.random()*-250-20)+'px');e.style.color=['#f5d9ff','#ffd7eb','#d9c5ff','#ffe6b3'][i%4];fx.appendChild(e);setTimeout(()=>e.remove(),1300)}}
+function shootingStar(){const s=document.createElement('i');s.className='shooting-star';s.style.top=(8+Math.random()*35)+'%';document.body.appendChild(s);setTimeout(()=>s.remove(),1600)}
+setInterval(shootingStar,7000);
+function progress(active){return '<div class="progress">'+Array.from({length:4},(_,i)=>'<i class="dot '+(i===active?'active':'')+'"></i>').join('')+'</div>'}
+function show(markup){content.classList.remove('leaving','scene');void content.offsetWidth;content.innerHTML=markup;content.classList.add('scene');window.scrollTo({top:0,behavior:'smooth'})}
+function go(fn){content.classList.remove('scene');content.classList.add('leaving');setTimeout(fn,200)}
+function clickNext(id,fn){const el=document.getElementById(id);if(el)el.addEventListener('click',()=>{sparkle(20);go(fn)})}
+function chapter2(){show(`<div class="eyebrow">Chapter I · A wish from the stars</div><div class="symbol">🌙</div><h2>Ek khoobsurat si dua… ❤️</h2><p>Zindagi ke saadhaaran din bhi tumhe khoobsurat yaadein de jaayein. Bina kisi ummeed ke, chhote-chhote pal tumhare chehre par muskaan le aayein. Aur jab bhi tumhara dil udaas ho, tumhe sukoon aur tasalli dene waale pal khud tum tak chale aayein.</p><p>Tum is duniya ko jo khoobsurat roshni dete ho, us roshni ka thoda sa hissa tumhari zindagi mein bhi laut kar aaye.</p><p><strong>Tumhari muskaan ke peeche hamesha koi khoobsurat wajah ho... Aur tumhare dil mein hamesha ek meetha sa ehsaas rahe... ❤️</strong></p><p>Kyunki is duniya mein kuch logon ko khush dekhna hi apne aap mein ek khoobsurat ehsaas hota hai.</p><p><strong>Aur tum bhi unhi mein se ek ho... ❤️✨</strong></p><button class="btn" id="next">Keep wandering →</button>${progress(1)}`);clickNext('next',chapter3)}
+function chapter3(){show(`<div class="eyebrow">Chapter II · A little wish list</div><h2>For the year ahead…</h2><p>Four little wishes, sent your way.</p><div class="wishgrid"><div class="wish"><span>✨</span><b>Keep Your Sparkle</b><small>Never lose the things that make you, you.</small></div><div class="wish"><span>🌷</span><b>Room to Grow</b><small>May your dreams have space to bloom.</small></div><div class="wish"><span>☁️</span><b>Gentle Days</b><small>May you find rest whenever you need it.</small></div><div class="wish"><span>🌠</span><b>Beautiful Surprises</b><small>May good things find you unexpectedly.</small></div></div><button class="btn" id="next">Follow the stars →</button>${progress(2)}`);clickNext('next',chapter5)}
+function chapter5(){show(`<div class="eyebrow">Chapter III · If wishes could speak</div><div class="symbol">🌷</div><h2>If I Could Give You One Thing… ♡✨</h2><p>I wish you could see yourself through the eyes of someone who notices every little thing about you. 🤍</p><p>Your smile, your little habits, and the way your presence can make an ordinary day feel special without you even trying. 💗</p><p>I hope life gives you countless reasons to smile, a peaceful heart, and a happiness that never fades. I hope you always feel loved, valued, and special, even on your simplest days.</p><p>And above all, I hope you never forget how special you are, just by being yourself. 🌷</p><button class="btn" id="next">There’s one last page →</button>${progress(4)}`);clickNext('next',finalLetter)}
+function finalLetter(){
+show(`<div class="birthday-screen"><div class="bg-hearts" aria-hidden="true">
+<span class="bg-heart" style="--x:7%;--s:18px;--c:#ffb9df;--t:8s;--delay:0s;--drift:22px">♡</span>
+<span class="bg-heart" style="--x:20%;--s:13px;--c:#d7c2ff;--t:9s;--delay:2s;--drift:-18px">♥</span>
+<span class="bg-heart" style="--x:36%;--s:21px;--c:#ffc5e7;--t:10s;--delay:1s;--drift:16px">♡</span>
+<span class="bg-heart" style="--x:54%;--s:15px;--c:#d7c2ff;--t:8.5s;--delay:3s;--drift:-20px">♥</span>
+<span class="bg-heart" style="--x:71%;--s:20px;--c:#ffb9df;--t:9.5s;--delay:.7s;--drift:18px">♡</span>
+<span class="bg-heart" style="--x:88%;--s:14px;--c:#e8d7ff;--t:8s;--delay:2.5s;--drift:-15px">♥</span>
+</div><div class="birthday-kicker">Made with a little stardust</div><div class="birthday-heart">♡</div><h2 class="birthday-title">HAPPY BIRTHDAY<br>SHANU...</h2><div class="birthday-next-wrap"><button class="btn" id="nextToQuestion1" type="button">Next →</button></div>${progress(4)}</div>`);
+sparkle(14);
+document.getElementById('nextToQuestion1').addEventListener('click',()=>{sparkle(22);go(question1)});
+}
+function question1(){
+show(`<div class="eyebrow">One little question · just for you</div><div class="symbol">♡</div><h2>How did this little<br>birthday surprise feel?</h2><p>Yathachi yenkita solanum ma MADAM...!!</p><textarea id="answer1" aria-label="Your answer" placeholder="Write anything you feel…" rows="4" style="width:100%;max-width:480px;resize:vertical;background:#100d20;color:#fff0ff;border:1px solid #cbb7ff55;border-radius:14px;padding:14px;font:15px Georgia,serif;line-height:1.5;outline:none;margin:12px auto 18px;display:block"></textarea><button class="btn" id="submitAnswer1" type="button">Finish ✨</button>${progress(3)}`);
+const button=document.getElementById('submitAnswer1');
+button.addEventListener('click',async()=>{
+  const field=document.getElementById('answer1');
+  answers.q1=field ? field.value.trim() : '';
+  button.disabled=true;button.textContent='One little moment…';
+  try {
+    if (!window.emailjs) throw new Error('EmailJS library did not load');
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {answer1:answers.q1, answer2:''});
+  } catch(err) {
+    console.error('EmailJS send failed:',err);
+    alert('Your answer could not be emailed right now. The website will continue to the end page.');
+  }
+  sparkle(22);go(endPage);
+});
+}
+function endPage(){show(`<div class="end-signature-screen"><div class="end-signature-only">A Little Message for You…<span class="ending-heart">♡</span></div><div class="end-final-message hidden">Neega sona someone <br> will take care of you <br>Don't worry…♡</div></div>`);const sign=document.querySelector('.end-signature-only');const message=document.querySelector('.end-final-message');if(sign&&message){setTimeout(()=>{sign.style.display='none';message.classList.remove('hidden')},3000)}}
+document.getElementById('start').addEventListener('click',()=>{sparkle(28);go(chapter2)});
+soundBtn.addEventListener('click', async()=>{
+  if (!bgMusic) return;
+  if (bgMusic.paused) {
+    try {
+      await bgMusic.play();
+      soundBtn.textContent='♫ Music: On';
+    } catch (e) {
+      soundBtn.textContent='Add background-song.mp3';
+      console.error('Background music could not play:',e);
+    }
+  } else {
+    bgMusic.pause();
+    soundBtn.textContent='♫ Music: Off';
+  }
+});
+})();
+</script>
+</body>
+</html>
